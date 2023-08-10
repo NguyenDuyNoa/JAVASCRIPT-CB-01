@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 03</title>
+
+    <head>
+        <style>
+            h2 {
+                display: flex;
+                justify-content: center;
+                color: green;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 350px;
+                margin: auto;
+                background-color: greenyellow;
+            }
+
+            td {
+                border: 1px solid black;
+                padding: 5px;
+                width: 100%;
+            }
+
+            button {
+                display: flex;
+                margin: auto;
+            }
+        </style>
+    </head>
+
+<body>
+    <div class="container">
+        <h2>Kết quả cuối năm học</h2>
+        <table>
+            <tr>
+                <td>Điểm trung bình:</td>
+                <td> <input type="number" name="" id="diem"></td>
+            </tr>
+            <tr>
+                <td>Kết quả:</td>
+                <td> <input type="text" name="" id="kq" ></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button onclick="xuatKetQua()">Xuất kết quả</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let diemTB = document.getElementById('diem');
+        let ketQuaInput = document.getElementById('kq');
+
+        function xuatKetQua() {
+            let diem = parseFloat(diemTB.value);
+
+            if (diem < 5) {
+                ketQuaInput.value = "Ở lại lớp";
+            } else {
+                ketQuaInput.value = "Được lên lớp";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

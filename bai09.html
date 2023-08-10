@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 09</title>
+
+    <style>
+        h2 {
+            display: flex;
+            justify-content: center;
+            color: orange;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 350px;
+            margin: auto;
+            background-color: yellow;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        button {
+            margin: auto;
+        }
+
+        input {
+            width: 50px;
+        }
+
+        .tinh {
+            display: flex;
+        }
+
+        .result {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Tìm các số chia hết cho 5 và 7</h2>
+        <table>
+            <tr>
+                <td>
+                    <span>Nhập từ số</span>
+                    <input type="number" id="soDau">
+                    <span>đến số</span>
+                    <input type="number" id="soCuoi">
+
+                </td>
+                <td class="tinh">
+                    <button onclick="xuatSoChiaHet()">In</button>
+                </td>
+            </tr>
+
+            <td colspan="2" class="result">
+                <span id="soChiaHet">...</span>
+            </td>
+        </table>
+    </div>
+
+    <script>
+        let soDau = document.getElementById('soDau');
+        let soCuoi = document.getElementById('soCuoi');
+        let soChiaHet = document.getElementById('soChiaHet');
+
+        function xuatSoChiaHet() {
+            let soThuNhat = parseFloat(soDau.value);
+            let soThuHai = parseFloat(soCuoi.value);
+
+            if (!isNaN(soThuNhat,soThuHai) && (soThuNhat,soThuHai) !== 0) {
+                soChiaHet.innerHTML = '';
+                let array = [];
+
+                for (let i = soThuNhat; i <= soThuHai; i++) {
+                    if (i % 5 == 0 && i % 7 == 0) {
+                        array.push(i);
+                    }
+                }
+                let message = 'Số điều tiên nằm trong khoảng ' + soThuNhat + ' đến  ' + soThuHai + ' chia hết cho 5 và 7 là: ' + array[0];
+                
+                soChiaHet.innerHTML = message;
+            } else {
+                soChiaHet.innerHTML = 'Vui lòng nhập hai số !!!';
+            }
+        }
+    </script>
+</body>
+
+</html>

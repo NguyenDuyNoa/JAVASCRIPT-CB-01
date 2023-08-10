@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 07</title>
+
+    <style>
+        h2 {
+            display: flex;
+            justify-content: center;
+            color: orange;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 350px;
+            margin: auto;
+            background-color: yellow;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        button {
+            margin: auto;
+        }
+
+        input {
+            width: 100px;
+        }
+
+        .tinh {
+            display: flex;
+        }
+
+        .result {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Tìm các số chia hết cho 6 và 9</h2>
+        <table>
+            <tr>
+                <td>Nhập một số:</td>
+                <td class="tinh">
+                    <input type="text" id="soNhapVao">
+                    <button onclick="xuatSoChiaHet()">In</button>
+                </td>
+            </tr>
+
+            <td colspan="2" class="result">
+                <span id="soChiaHet">Các số từ 1 đến số bạn nhập chia hết cho 6 và 9!!!</span>
+            </td>
+        </table>
+    </div>
+
+    <script>
+        let soNhapVao = document.getElementById('soNhapVao');
+        let soChiaHet = document.getElementById('soChiaHet');
+
+        function xuatSoChiaHet() {
+            let so = parseFloat(soNhapVao.value);
+
+            if (!isNaN(so) && so !== 0) {
+                soChiaHet.innerHTML = '';
+                let array = [];
+
+                for (let i = 1; i <= so; i++) {
+                    if (i % 6 == 0 && i % 9 == 0) {
+                        array.push(i);
+                        console.log(i)
+                    }
+                }
+
+                let message = 'Các số từ 1 đến ' + so + ' chia hết cho 6 và 9 là: ';
+                for (let i = 0; i < array.length; i++) {
+                    message += array[i] + ', ';
+                }
+                soChiaHet.innerHTML = message;
+            } else {
+                soChiaHet.innerHTML = 'Vui lòng nhập một số !!!';
+            }
+        }
+    </script>
+</body>
+
+</html>

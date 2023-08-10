@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 01</title>
+  <style>
+    .container {
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .table-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    table {
+      margin-bottom: 20px;
+      width: fit-content;
+      display: flex;
+      text-align: center;
+
+      background: #959191;
+      border-collapse: collapse;
+    }
+
+    table,
+    td,
+    th {
+      border: 1px solid black;
+    }
+
+    .label {
+      padding: 10px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+    }
+
+    button {
+      padding: 10px 20px;
+      text-align: center;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <form class="container">
+    <div class="table-container">
+      <table>
+        <tr>
+          <td class="label">Nhập tên bạn:
+            <input type="text" id="nameInput" placeholder="Nhập họ tên của bạn">
+          </td>
+        </tr>
+      </table>
+    </div>
+    <button onClick="greet()">Xuất câu chào</button>
+    <p id="greeting"></p>
+  </form>
+
+  <script>
+    function greet() {
+      var name = document.getElementById("nameInput").value;
+      if (name.trim() !== "") {
+        alert("Xin chào, " + name + "!");
+      } else {
+        alert("Vui lòng nhập tên của bạn!");
+      }
+    }
+  </script>
+</body>
+
+</html>

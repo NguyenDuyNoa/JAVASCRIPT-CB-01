@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 05</title>
+
+    <style>
+        h2 {
+            display: flex;
+            justify-content: center;
+            color: green;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 350px;
+            margin: auto;
+            background-color: greenyellow;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 5px;
+            width: 100%;
+        }
+
+        select {
+            padding: 5px;
+            width: 100%;
+        }
+
+        button {
+            display: flex;
+            margin: auto;
+        }
+
+        #ketQua{
+            display: flex;
+            justify-content: center;
+            color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Tính tiền thưởng cuối năm</h2>
+        <table>
+            <tr>
+                <td>Tiền lương:</td>
+                <td> <input type="number" name="" id="luong"></td>
+            </tr>
+
+            <tr>
+                <td>Xếp loại:</td>
+                <td id="loai">
+                    <select id="xepLoai">
+                        <option value="2">Loại A</option>
+                        <option value="1.8">Loại B</option>
+                        <option value="1.2">Loại C</option>
+                        <option value="0.8">Loại D</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="center-row"><button onclick="tinh()">Tính</button></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <span id="ketQua">Tiền thưởng là: ... đồng</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let luong = document.getElementById('luong');
+        let xepLoai = document.getElementById('xepLoai');
+        let ketQua = document.getElementById('ketQua');
+
+        function tinh() {
+            let tienLuong = parseFloat(luong.value);
+            let heSo = parseFloat(xepLoai.value);
+
+            if (isNaN(tienLuong) || isNaN(heSo)) {
+                ketQua.textContent = "Vui lòng nhập giá trị hợp lệ.";
+                return;
+            }
+
+            switch (heSo) {
+                case 2:
+                    ketQua.innerText = `Tiền thưởng là: ${tienLuong * 2} đồng`;
+                    break;
+                case 1.8:
+                    ketQua.innerText = `Tiền thưởng là: ${tienLuong * 1.8} đồng`;
+                    break;
+                case 1.2:
+                    ketQua.innerText = `Tiền thưởng là: ${tienLuong * 1.2} đồng`;
+                    break;
+                case 0.8:
+                    ketQua.innerText = `Tiền thưởng là: ${tienLuong * 0.8} đồng`;
+                    break;
+                default:
+                    ketQua.innerText = "Xếp loại không hợp lệ.";
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

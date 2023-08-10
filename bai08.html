@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 08</title>
+
+    <style>
+        h2 {
+            display: flex;
+            justify-content: center;
+            color: orange;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 200px;
+            margin: auto;
+            background-color: yellow;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        button {
+            width: 100%;
+        }
+
+        .in {
+            display: flex;
+        }
+
+        .bangCuuChuong {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>In bảng cửu chương</h2>
+        <table>
+            <tr>
+                <td class="in">
+                    <button onclick="xuatCuuChuong()">In bảng cửu chương</button>
+                </td>
+            </tr>
+
+            <tr class="bangCuuChuong">
+                <td id="bangCuuChuong">Bảng cửu chương bạn muốn in tại đây!!!!</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let cuuChuong;
+
+        do {
+            cuuChuong = parseFloat(prompt("Nhập một số:"));
+        } while (isNaN(cuuChuong));
+       let bangCuuChuong = document.getElementById('bangCuuChuong');
+
+        function xuatCuuChuong() {
+
+            if (!isNaN(cuuChuong) && cuuChuong !== 0) {6
+                bangCuuChuong.innerHTML = '';
+
+                for (let i = 1; i <= 10; i++) {
+                    let ketQua = cuuChuong * i;
+                    bangCuuChuong.innerHTML += `${cuuChuong} x ${i} = ${ketQua}<br>`;
+                }
+            } else {
+                bangCuuChuong.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+
+</html>

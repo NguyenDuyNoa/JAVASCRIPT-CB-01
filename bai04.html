@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 04</title>
+
+    <head>
+        <style>
+            h2 {
+                display: flex;
+                justify-content: center;
+                color: green;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 350px;
+                margin: auto;
+                background-color: greenyellow;
+            }
+
+            td {
+                border: 1px solid black;
+                padding: 5px;
+                width: 100%;
+            }
+
+            button {
+                display: flex;
+                margin: auto;
+            }
+        </style>
+    </head>
+
+<body>
+    <div class="container">
+        <h2>Xếp loại cuối năm học</h2>
+        <table>
+            <tr>
+                <td>Điểm trung bình HKI:</td>
+                <td> <input type="number" name="" id="diemHKI"></td>
+            </tr>
+
+            <tr>
+                <td>Điểm trung bình HKII:</td>
+                <td> <input type="number" name="" id="diemHKII"></td>
+            </tr>
+
+            <tr>
+                <td>Điểm trung bình cuối năm:</td>
+                <td> <input type="number" name="" id="diemTB"></td>
+            </tr>
+
+            <tr>
+                <td>Xếp loại:</td>
+                <td id="xepLoai"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button onclick="xuatXepLoai()">Xuất xếp loại</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let diemHKI = document.getElementById('diemHKI');
+        let diemHKII = document.getElementById('diemHKII');
+        let diemTB = document.getElementById('diemTB');
+        let xepLoai = document.getElementById('xepLoai');
+
+        function xuatXepLoai() {
+            let HKI = parseFloat(diemHKI.value);
+            let HKII = parseFloat(diemHKII.value);
+
+            if (HKI && HKII) {
+                let TB = (HKI + (HKII * 2)) / 3;
+                diemTB.value = TB;
+
+                if (TB <= 10 && TB >= 9) {
+                    xepLoai.innerText = "Giỏi";
+                } else if (TB < 9 && TB >= 7) {
+                    xepLoai.innerText = "Khá";
+                } else if (TB < 7 && TB >= 5) {
+                    xepLoai.innerText = "Trung bình";
+                } else if (TB < 5) {
+                    xepLoai.innerText = "Yếu";
+                } else {
+                    xepLoai.innerText = "";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 06</title>
+
+    <style>
+        h2 {
+            display: flex;
+            justify-content: center;
+            color: orange;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 350px;
+            margin: auto;
+            background-color: yellow;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        button {
+            margin: auto;
+        }
+
+        input {
+            width: 100px;
+        }
+
+        .tinh {
+            display: flex;
+        }
+
+        .bangCuuChuong {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>In bảng cửu chương</h2>
+        <table>
+            <tr>
+                <td>Nhập cửu chương:</td>
+                <td class="tinh">
+                    <input type="text" id="cuuChuong">
+                    <button onclick="xuatCuuChuong()">In</button>
+                </td>
+            </tr>
+
+            <td colspan="2" class="bangCuuChuong">
+                <span id="bangCuuChuong" >Hãynhập bảng cửu chương bạn muốn!!!</span>
+            </td>
+        </table>
+    </div>
+
+    <script>
+        let cuuChuong = document.getElementById('cuuChuong');
+        let bangCuuChuong = document.getElementById('bangCuuChuong');
+
+        function xuatCuuChuong() {
+            let chuong = parseFloat(cuuChuong.value); // bảng cửu chương số
+
+            if (!isNaN(chuong) && chuong !== 0) {
+                bangCuuChuong.innerHTML = '';
+
+                for (let i = 1; i <= 10; i++) {
+                    let ketQua = chuong * i;
+                    bangCuuChuong.innerHTML += `${chuong} x ${i} = ${ketQua}<br>`;
+                }
+            } else {
+                bangCuuChuong.innerHTML = 'Vui lòng nhập số!!!';
+            }
+        }
+    </script>
+</body>
+
+</html>
